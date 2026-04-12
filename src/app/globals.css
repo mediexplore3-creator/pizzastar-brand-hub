@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-pizza-primary: #ff3c3c;
+  --color-pizza-secondary: #f59e0b;
+  --color-pizza-dark: #111111;
+  --color-pizza-surface: #ffffff;
+  
+  --font-display: "Poppins", ui-sans-serif, system-ui;
+  --font-body: "Inter", ui-sans-serif, system-ui;
+
+  --radius-pizza: 2rem;
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --primary: #ff3c3c;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+::selection {
+  @apply bg-pizza-primary text-white;
+}
+
+.glass {
+  @apply bg-[#1e1d1d] backdrop-blur-md border border-white/5;
+}
+
+.dark .glass {
+  @apply bg-[#1e1d1d] backdrop-blur-md border border-white/10;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-pizza-primary to-pizza-secondary;
+}
+
+/* Base Component Styles expanded to avoid Tailwind @apply build issues */
+.btn-primary {
+  @apply h-14 px-8 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  @apply bg-pizza-primary text-white hover:brightness-110 shadow-[0_8px_30px_rgb(255,60,60,0.3)];
+}
+
+.btn-secondary {
+  @apply h-14 px-8 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  @apply bg-pizza-dark text-white hover:bg-black;
+}
+
+.btn-ghost {
+  @apply h-14 px-8 rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  @apply bg-transparent border-2 border-pizza-primary/20 text-pizza-primary hover:bg-pizza-primary/5;
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6 py-20 md:py-32;
+}
+
+.heading-display {
+  @apply font-display font-black leading-[1.1];
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-pizza-primary/20 rounded-full hover:bg-pizza-primary/40 transition-colors;
+}
+
+
+/* High-quality typography for news and blogs */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-weight: 900 !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--color-pizza-primary) !important;
+  text-decoration-thickness: 4px !important;
+  text-underline-offset: 8px !important;
+  margin-bottom: 2rem !important;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[#1e1d1d] backdrop-blur-xl border border-white/5 shadow-2xl rounded-[var(--radius-pizza)];
+  }
+}
