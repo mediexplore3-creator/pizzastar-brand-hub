@@ -28,6 +28,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://pizzastarweb.netlify.app'),
   title: "Pizza Star | Taste the Star of Flavor 🍕",
   description: "Authentic wood-fired Indian fusion pizzas. Discover our recipes, blog, and download the Pizza Star app for exclusive deals.",
   keywords: ["Pizza Star", "Indian Fusion Pizza", "Pizza Blog", "Download Pizza App", "Best Pizza in India"],
@@ -52,10 +53,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pizzastarweb.netlify.app';
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
+  const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-9190694258297146';
+
   return (
     <html lang="en" className="dark scroll-smooth" style={{ colorScheme: 'dark' }}>
       <head>
-        <link rel="canonical" href="https://pizzastarweb.netlify.app" />
+        <meta name="google-adsense-account" content="ca-pub-9190694258297146" />
+        <link rel="canonical" href={SITE_URL} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -63,9 +69,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Restaurant",
               "name": "Pizza Star",
-              "image": "https://pizzastarweb.netlify.app/og-image.jpg",
-              "@id": "https://pizzastarweb.netlify.app",
-              "url": "https://pizzastarweb.netlify.app",
+              "image": `${SITE_URL}/og-image.jpg`,
+              "@id": SITE_URL,
+              "url": SITE_URL,
               "telephone": "+91XXXXXXXXXX",
               "address": {
                 "@type": "PostalAddress",
@@ -94,7 +100,7 @@ export default function RootLayout({
                 "opens": "11:00",
                 "closes": "23:00"
               },
-              "menu": "https://pizzastarweb.netlify.app/menu",
+              "menu": `${SITE_URL}/menu`,
               "servesCuisine": ["Pizza", "Indian Fusion"],
               "priceRange": "$$"
             })
@@ -107,17 +113,17 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Pizza Star",
-              "url": "https://pizzastarweb.netlify.app",
+              "url": SITE_URL,
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://pizzastarweb.netlify.app/blog?q={search_term_string}",
+                "target": `${SITE_URL}/blog?q={search_term_string}`,
                 "query-input": "required name=search_term_string"
               }
             })
           }}
         />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -125,15 +131,16 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', '${GA_ID}');
           `}
         </Script>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXX"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`}
           crossOrigin="anonymous"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
+
       </head>
       <body className={`${inter.variable} ${poppins.variable} antialiased selection:bg-pizza-primary/20`}>
         <GlobalScrollTop />
