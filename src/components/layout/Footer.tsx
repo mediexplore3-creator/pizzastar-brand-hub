@@ -83,9 +83,10 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center transition-all text-white/40 hover:text-white group"
+                  aria-label={`Visit Pizza Star on ${label}`}
                   title={label}
                 >
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current transition-colors">
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current transition-colors" aria-hidden="true">
                     <path d={path} />
                   </svg>
                 </motion.a>

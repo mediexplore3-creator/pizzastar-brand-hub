@@ -244,16 +244,18 @@ export default function MenuPage() {
             <h2 className="text-4xl md:text-7xl font-black text-white italic leading-none relative z-10">CAN&apos;T WAIT? <br /> <span className="gradient-text">ORDER NOW.</span></h2>
             <p className="text-white/50 font-bold uppercase tracking-widest text-sm relative z-10">Download our mobile app for faster delivery and exclusive rewards.</p>
             <div className="flex flex-wrap justify-center gap-6 pt-10 relative z-10">
-               <Link href="/download">
-                 <button className="btn-primary px-10 h-16 rounded-2xl flex items-center gap-3">
-                    <LayoutGrid size={20} />
-                    <span>Download Our App</span>
-                 </button>
+               <Link 
+                 href="/download"
+                 className="btn-primary px-10 h-16 rounded-2xl flex items-center justify-center gap-3"
+               >
+                  <LayoutGrid size={20} />
+                  <span>Download Our App</span>
                </Link>
-               <Link href="/contact">
-                 <button className="glass px-10 h-16 rounded-2xl border border-white/10 text-white font-bold hover:bg-white hover:text-pizza-dark transition-all">
-                    Contact Kitchen
-                 </button>
+               <Link 
+                 href="/contact"
+                 className="glass px-10 h-16 rounded-2xl border border-white/10 text-white font-bold hover:bg-white hover:text-pizza-dark transition-all flex items-center justify-center"
+               >
+                  Contact Kitchen
                </Link>
             </div>
          </div>

@@ -213,10 +213,18 @@ export default function HomeClient() {
                     Get the Pizza Star mobile app for a faster checkout, exclusive Indian fusion pizza deals, and secret recipes.
                   </p>
                   <div className="flex flex-wrap gap-4 pt-4">
-                     <Link href="/download" className="hover:scale-105 transition-transform shadow-2xl">
+                     <Link 
+                       href="/download" 
+                       className="hover:scale-105 transition-transform shadow-2xl"
+                       aria-label="Download on the App Store"
+                     >
                         <Image src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" width={160} height={48} className="h-12 w-auto" />
                      </Link>
-                     <Link href="/download" className="hover:scale-105 transition-transform shadow-2xl">
+                     <Link 
+                       href="/download" 
+                       className="hover:scale-105 transition-transform shadow-2xl"
+                       aria-label="Get it on Google Play"
+                     >
                         <Image src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" width={160} height={48} className="h-12 w-auto" />
                      </Link>
                   </div>
@@ -258,13 +266,21 @@ export default function HomeClient() {
            }}
            className="flex flex-col md:flex-row gap-4"
          >
+            <label htmlFor="newsletter-email" className="sr-only">Email Address</label>
             <input 
               required
+              id="newsletter-email"
               type="email" 
               placeholder="Enter your email" 
               className="flex-1 h-14 rounded-2xl bg-pizza-primary/5 dark:bg-[#1e1d1d] border border-pizza-dark/10 dark:border-white/10 px-6 text-sm focus:outline-none focus:ring-2 focus:ring-pizza-primary/20"
             />
-            <button type="submit" className="btn-primary h-14 px-12 transition-all hover:scale-105 active:scale-95">Subscribe</button>
+            <button 
+              type="submit" 
+              className="btn-primary h-14 px-12 transition-all hover:scale-105 active:scale-95"
+              aria-label="Subscribe to newsletter"
+            >
+              Subscribe
+            </button>
          </form>
          <p className="text-[10px] text-white/40 font-bold uppercase tracking-widest leading-relaxed">
             By subscribing, you agree to our privacy policy and consent to receive marketing emails. 

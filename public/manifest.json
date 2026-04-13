@@ -1,16 +1,28 @@
 {
-  "name": "Pizza Star | India's Fusion Hub",
+  "name": "Pizza Star | Taste the Star of Flavor 🍕",
   "short_name": "Pizza Star",
   "description": "Authentic wood-fired Indian fusion pizzas, recipes, and blog.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#b51621",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff3c3c",
   "icons": [
     {
       "src": "/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "https://i.postimg.cc/sXDQRxZM/PIZZA-STAR-LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://i.postimg.cc/sXDQRxZM/PIZZA-STAR-LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

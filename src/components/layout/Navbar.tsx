@@ -57,6 +57,7 @@ export default function Navbar() {
                  alt="Pizza Star Logo" 
                  fill 
                  className="object-contain"
+                 priority
                />
             </div>
           </Link>
@@ -83,24 +84,31 @@ export default function Navbar() {
                   <Search size={20} />
                 </button>
                 
-                <Link href="/download">
-                    <Button variant="primary" className="h-12 px-6 text-[10px]">
-                        Download App
-                    </Button>
+                <Link 
+                  href="/download"
+                  className="btn-primary h-12 px-6 text-[10px] flex items-center justify-center"
+                >
+                  Download App
                 </Link>
             </div>
           </div>
 
           {/* Mobile Toggles */}
           <div className="flex items-center gap-3 lg:hidden relative z-[110]">
-            <button onClick={() => setSearchOpen(true)} className="p-3 rounded-xl bg-pizza-primary/5 text-white">
-              <Search size={20} />
+            <button 
+              onClick={() => setSearchOpen(true)} 
+              className="p-3 rounded-xl bg-pizza-primary/5 text-white"
+              aria-label="Open Search"
+            >
+              <Search size={20} aria-hidden="true" />
             </button>
             <button 
               className={`p-3 rounded-xl transition-all ${isOpen ? 'bg-pizza-primary text-white' : 'bg-pizza-primary/5 text-white'}`} 
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close Menu" : "Open Menu"}
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -134,8 +142,12 @@ export default function Navbar() {
                     </div>
                     <span className="font-display font-black text-lg uppercase">Pizza <span className="text-pizza-primary">Star</span></span>
                   </div>
-                  <button onClick={() => setIsOpen(false)} className="p-2 rounded-lg bg-black/5 dark:bg-white/5">
-                    <X size={20} />
+                  <button 
+                    onClick={() => setIsOpen(false)} 
+                    className="p-2 rounded-lg bg-black/5 dark:bg-white/5"
+                    aria-label="Close Menu Drawer"
+                  >
+                    <X size={20} aria-hidden="true" />
                   </button>
                </div>
 
@@ -159,10 +171,11 @@ export default function Navbar() {
                </nav>
 
                <div className="mt-auto space-y-6">
-                  <Link href="/download" className="block">
-                     <Button className="w-full h-16 text-xs">
-                        Download Mobile App
-                     </Button>
+                  <Link 
+                    href="/download" 
+                    className="btn-primary w-full h-16 text-xs flex items-center justify-center"
+                  >
+                    Download Mobile App
                   </Link>
                   <p className="text-center text-[10px] font-bold text-white/30 uppercase tracking-[0.3em]">
                     © 2026 Pizza Star India
@@ -185,8 +198,9 @@ export default function Navbar() {
             <button 
               onClick={() => setSearchOpen(false)}
               className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors p-3 bg-white/5 rounded-full"
+              aria-label="Close Search Overlay"
             >
-              <X size={28} />
+              <X size={28} aria-hidden="true" />
             </button>
             
             <div className="w-full max-w-4xl space-y-12">

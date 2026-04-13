@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "secure-build": "next build && node scripts/obfuscate.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -23,7 +24,10 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
+    "javascript-obfuscator": "^5.4.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "terser": "^5.46.1",
+    "typescript": "^5",
+    "vite-plugin-obfuscator": "^1.0.5"
   }
 }

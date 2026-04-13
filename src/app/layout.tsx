@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import GlobalScrollTop from "@/components/layout/GlobalScrollTop";
 import PageReveal from "@/components/layout/PageReveal";
 import CookieConsent from "@/components/layout/CookieConsent";
+import SecurityLoader from "@/components/layout/SecurityLoader";
 import Script from "next/script";
 
 const inter = Inter({
@@ -61,6 +62,10 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth" style={{ colorScheme: 'dark' }}>
       <head>
         <meta name="google-adsense-account" content="ca-pub-9190694258297146" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="canonical" href={SITE_URL} />
         <script
           type="application/ld+json"
@@ -143,6 +148,7 @@ export default function RootLayout({
 
       </head>
       <body className={`${inter.variable} ${poppins.variable} antialiased selection:bg-pizza-primary/20`}>
+        <SecurityLoader />
         <GlobalScrollTop />
         <CookieConsent />
         <Navbar />

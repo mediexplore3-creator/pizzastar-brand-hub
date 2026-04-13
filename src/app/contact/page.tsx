@@ -101,8 +101,9 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                       <label className="text-xs font-black uppercase tracking-widest text-white/60">Full Name</label>
+                       <label htmlFor="contact-name" className="text-xs font-black uppercase tracking-widest text-white/60">Full Name</label>
                        <input 
+                         id="contact-name"
                          name="name"
                          placeholder="John Doe"
                          className={`w-full h-14 rounded-2xl bg-pizza-primary/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} px-6 focus:outline-none focus:ring-2 focus:ring-pizza-primary/20 transition-all text-white placeholder:text-white/20`} 
@@ -110,8 +111,9 @@ export default function ContactPage() {
                        {errors.name && <p className="text-[10px] text-red-500 font-bold uppercase tracking-wider">{errors.name}</p>}
                     </div>
                     <div className="space-y-2">
-                       <label className="text-xs font-black uppercase tracking-widest text-white/60">Email Address</label>
+                       <label htmlFor="contact-email" className="text-xs font-black uppercase tracking-widest text-white/60">Email Address</label>
                        <input 
+                         id="contact-email"
                          name="email"
                          type="email"
                          placeholder="john@example.com"
@@ -121,8 +123,8 @@ export default function ContactPage() {
                     </div>
                  </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-white/60">Subject</label>
-                    <select className="w-full h-14 rounded-2xl bg-pizza-primary/5 border border-white/10 px-6 focus:outline-none focus:ring-2 focus:ring-pizza-primary/20 cursor-pointer text-white">
+                    <label htmlFor="contact-subject" className="text-xs font-black uppercase tracking-widest text-white/60">Subject</label>
+                    <select id="contact-subject" className="w-full h-14 rounded-2xl bg-pizza-primary/5 border border-white/10 px-6 focus:outline-none focus:ring-2 focus:ring-pizza-primary/20 cursor-pointer text-white">
                        <option className="bg-[#1e1d1d] text-white">General Inquiry</option>
                        <option className="bg-[#1e1d1d] text-white">Blog Contribution</option>
                        <option className="bg-[#1e1d1d] text-white">Brand Partnership</option>
@@ -130,8 +132,9 @@ export default function ContactPage() {
                     </select>
                  </div>
                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-white/60">Your Message</label>
+                    <label htmlFor="contact-message" className="text-xs font-black uppercase tracking-widest text-white/60">Your Message</label>
                     <textarea 
+                      id="contact-message"
                       name="message"
                       rows={5} 
                       placeholder="How can we help?"
@@ -165,6 +168,7 @@ export default function ContactPage() {
         className="mt-32 rounded-[3.5rem] overflow-hidden glass border border-white/5 shadow-2xl h-[500px] w-full relative"
       >
         <iframe 
+          title="Pizza Star Rajound Location Map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3469.9245067318207!2d76.47903047532611!3d29.576799775162428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e03560deef0f9%3A0x876b2becf1ca9d8e!2sPizza%20Star%20Rajound!5e0!3m2!1sen!2sin!4v1776006491507!5m2!1sen!2sin" 
           width="100%" 
           height="100%" 
