@@ -153,12 +153,6 @@ export default function RootLayout({
             strategy="lazyOnload"
           />
         )}
-        <Script 
-          async 
-          custom-element="amp-auto-ads" 
-          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
-          strategy="lazyOnload"
-        />
 
       </head>
       <body className={`${inter.variable} ${poppins.variable} antialiased selection:bg-pizza-primary/20`}>

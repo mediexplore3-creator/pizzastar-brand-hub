@@ -37,7 +37,6 @@ const FEATURED_POSTS = [
 export default function HomeClient() {
   return (
     <div>
-      <div dangerouslySetInnerHTML={{ __html: '<amp-auto-ads type="adsense" data-ad-client="ca-pub-9190694258297146"></amp-auto-ads>' }} />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center pt-32 lg:pt-40 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-pizza-primary/5 -skew-x-12 translate-x-1/4 z-0" />

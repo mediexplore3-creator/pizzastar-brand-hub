@@ -98,7 +98,7 @@ export default function Footer() {
         {/* Links Sections */}
         {footerLinks.map((section) => (
           <div key={section.title} className="space-y-8">
-            <h4 className="font-display font-black text-xs uppercase tracking-[0.3em] text-pizza-primary">{section.title}</h4>
+            <h3 className="font-display font-black text-xs uppercase tracking-[0.3em] text-pizza-primary">{section.title}</h3>
             <ul className="space-y-4">
               {section.links.map((link) => (
                 <li key={link.name}>

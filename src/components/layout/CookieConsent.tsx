@@ -57,7 +57,7 @@ export default function CookieConsent() {
                     </div>
                     <div>
                        <h3 className="text-xl font-black text-white italic leading-none uppercase tracking-tighter">Cookie Policy</h3>
-                       <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mt-1">First Visit Special</p>
+                       <p className="text-white/70 text-[10px] font-bold uppercase tracking-widest mt-1">First Visit Special</p>
                     </div>
                  </div>
 
