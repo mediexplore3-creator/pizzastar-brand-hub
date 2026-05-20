@@ -155,8 +155,8 @@ export default function RootLayout({
         )}
         <Script 
           async 
-          custom-element="amp-ad" 
-          src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
+          custom-element="amp-auto-ads" 
+          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
           strategy="lazyOnload"
         />
 

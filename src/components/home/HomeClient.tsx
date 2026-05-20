@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Smartphone, ArrowRight, Pizza, Zap, Star, Utensils, Info, Calendar, User, Search } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import AmpAd from '@/components/ui/AmpAd';
 
 const CATEGORIES = [
   { name: 'Pizza', icon: <Pizza />, count: 12, color: 'bg-red-500' },
@@ -38,6 +37,7 @@ const FEATURED_POSTS = [
 export default function HomeClient() {
   return (
     <div>
+      <div dangerouslySetInnerHTML={{ __html: '<amp-auto-ads type="adsense" data-ad-client="ca-pub-9190694258297146"></amp-auto-ads>' }} />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center pt-32 lg:pt-40 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-pizza-primary/5 -skew-x-12 translate-x-1/4 z-0" />
@@ -195,16 +195,6 @@ export default function HomeClient() {
                    </motion.article>
                  ))}
              </div>
-      </section>
-
-      {/* AMP Ad Section */}
-      <section className="py-16 px-6 bg-pizza-dark/50">
-        <div className="max-w-7xl mx-auto">
-          <AmpAd 
-            adClient="ca-pub-9190694258297146" 
-            adSlot="8165732373"
-          />
-        </div>
       </section>
 
       {/* App Promotion Section */}
