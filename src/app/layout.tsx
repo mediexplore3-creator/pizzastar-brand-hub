@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://pizzastarweb.netlify.app';
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-XXXXXXXXXX';
-  const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-9190694258297146';
+  const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID;
 
   return (
     <html lang="en" className="dark scroll-smooth" style={{ colorScheme: 'dark' }}>

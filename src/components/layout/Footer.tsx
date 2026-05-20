@@ -98,7 +98,7 @@ export default function Footer() {
         {/* Links Sections */}
         {footerLinks.map((section) => (
           <div key={section.title} className="space-y-8">
-            <h3 className="font-display font-black text-xs uppercase tracking-[0.3em] text-pizza-primary">{section.title}</h3>
+            <h3 className="font-display font-black text-xs uppercase tracking-[0.3em] text-[#ff453a]">{section.title}</h3>
             <ul className="space-y-4">
               {section.links.map((link) => (
                 <li key={link.name}>
@@ -121,7 +121,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-white/30">
+      <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-white/50">
         <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
            <p>© 2026 Pizza Star India Pvt Ltd.</p>
            <p className="flex items-center gap-2">FSSAI: 12345678901234</p>

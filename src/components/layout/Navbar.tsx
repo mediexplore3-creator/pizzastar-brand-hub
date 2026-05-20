@@ -68,7 +68,7 @@ export default function Navbar() {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className={`text-sm font-black uppercase tracking-widest transition-all hover:text-pizza-primary relative group ${pathname === link.href ? 'text-pizza-primary' : 'text-white/60'}`}
+                className={`text-sm font-black uppercase tracking-widest transition-all hover:text-pizza-primary relative group ${pathname === link.href ? 'text-white' : 'text-white/60'}`}
               >
                 {link.name}
                 <span className={`absolute -bottom-2 left-0 h-1 bg-pizza-primary transition-all duration-300 ${pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'}`} />

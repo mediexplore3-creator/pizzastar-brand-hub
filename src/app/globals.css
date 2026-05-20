@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-pizza-primary: #ff3c3c;
+  --color-pizza-primary: #e50000;
   --color-pizza-secondary: #f59e0b;
   --color-pizza-dark: #111111;
   --color-pizza-surface: #ffffff;
@@ -16,7 +16,7 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ffffff;
-  --primary: #ff3c3c;
+  --primary: #e50000;
   color-scheme: dark;
 }
 
