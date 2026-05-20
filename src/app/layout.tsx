@@ -7,6 +7,7 @@ import GlobalScrollTop from "@/components/layout/GlobalScrollTop";
 import PageReveal from "@/components/layout/PageReveal";
 import CookieConsent from "@/components/layout/CookieConsent";
 import SecurityLoader from "@/components/layout/SecurityLoader";
+import AdUnit from "@/components/ui/AdUnit";
 import Script from "next/script";
 
 const inter = Inter({
@@ -164,6 +165,11 @@ export default function RootLayout({
           <PageReveal>
             {children}
           </PageReveal>
+          <div className="px-6 mt-12 max-w-7xl mx-auto">
+            <div className="w-full rounded-[2rem] bg-white/5 flex items-center justify-center border border-white/5 overflow-hidden min-h-[120px] p-4">
+              <AdUnit adSlot="8165732373" className="w-full" />
+            </div>
+          </div>
         </main>
         <Footer />
       </body>

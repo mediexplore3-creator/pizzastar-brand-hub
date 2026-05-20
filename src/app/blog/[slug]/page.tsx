@@ -106,7 +106,7 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* Sidebar Ad */}
               <div className="aspect-[3/4] rounded-2xl glass flex flex-col items-center justify-center p-4 overflow-hidden">
-                 <AdUnit adSlot="blog-sidebar-ad" adFormat="rectangle" className="w-full h-full" />
+                 <AdUnit adSlot="8165732373" adFormat="rectangle" className="w-full h-full" />
               </div>
 
               <div className="space-y-4">
