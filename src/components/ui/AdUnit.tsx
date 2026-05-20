@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 
 interface AdUnitProps {
   adSlot?: string;
-  adFormat?: 'auto' | 'fluid' | 'rectangle';
+  adFormat?: 'auto' | 'fluid' | 'rectangle' | 'autorelaxed';
   fullWidthResponsive?: boolean;
   className?: string;
   style?: React.CSSProperties;

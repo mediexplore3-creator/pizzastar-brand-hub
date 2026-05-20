@@ -131,7 +131,7 @@ function BlogContent() {
               </motion.article>
               {(i + 1) % 4 === 0 && (
                 <div className="col-span-1 md:col-span-2 lg:col-span-3 w-full my-8 glass rounded-[2.5rem] p-4 flex items-center justify-center overflow-hidden min-h-[120px]">
-                  <AdUnit adSlot={`blog-feed-ad-${i}`} className="w-full" />
+                  <AdUnit adSlot="4056235047" adFormat="autorelaxed" className="w-full" />
                 </div>
               )}
             </Fragment>
@@ -183,7 +183,7 @@ function BlogContent() {
 
       {/* AdSense Placement */}
       <div className="mt-32 max-w-5xl mx-auto w-full rounded-3xl overflow-hidden glass min-h-[150px] p-4 flex items-center justify-center">
-         <AdUnit adSlot="blog-bottom-ad" className="w-full" />
+         <AdUnit adSlot="9834037269" adFormat="autorelaxed" className="w-full" />
       </div>
     </div>
   );
