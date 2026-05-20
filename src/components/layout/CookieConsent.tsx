@@ -69,7 +69,7 @@ export default function CookieConsent() {
                     <div className="flex gap-3">
                        <button 
                          onClick={handleAccept}
-                         className="btn-primary flex-1 !h-12 !rounded-xl !text-[10px]"
+                         className="btn-primary flex-1 !h-12 !rounded-xl !text-[10px] !text-black"
                        >
                           Accept
                        </button>
@@ -82,7 +82,7 @@ export default function CookieConsent() {
                     </div>
                     <button 
                       onClick={handleCancel}
-                      className="w-full text-white/30 hover:text-white/60 transition-colors text-[9px] font-black uppercase tracking-[0.2em] py-1"
+                      className="w-full text-white/70 hover:text-white transition-colors text-[9px] font-black uppercase tracking-[0.2em] py-1"
                     >
                        Cancel
                     </button>
