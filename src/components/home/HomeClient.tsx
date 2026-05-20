@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Smartphone, ArrowRight, Pizza, Zap, Star, Utensils, Info, Calendar, User, Search } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import AmpAd from '@/components/ui/AmpAd';
 
 const CATEGORIES = [
   { name: 'Pizza', icon: <Pizza />, count: 12, color: 'bg-red-500' },
@@ -80,13 +81,14 @@ export default function HomeClient() {
               <div className="relative aspect-square w-full">
                  <div className="absolute inset-0 bg-pizza-primary/10 rounded-full animate-pulse-slow" />
                  <Image 
-                   src="https://i.postimg.cc/wjCdDGkh/header-pizza-image.png" 
-                   alt="Hero Pizza" 
-                   fill 
-                   className="object-contain drop-shadow-2xl hover:rotate-6 transition-transform duration-700"
-                   priority
-                   sizes="(max-width: 768px) 100vw, 50vw"
-                 />
+                    src="https://i.postimg.cc/wjCdDGkh/header-pizza-image.png" 
+                    alt="Hero Pizza" 
+                    fill 
+                    className="object-contain drop-shadow-2xl hover:rotate-6 transition-transform duration-700"
+                    priority
+                    fetchPriority="high"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
               </div>
            </motion.div>
         </div>
@@ -102,7 +104,7 @@ export default function HomeClient() {
               className="text-center mb-16 space-y-4"
             >
                <h2 className="font-display text-4xl font-black text-white">Explore Categories</h2>
-               <p className="text-white/40">From kitchen secrets to the latest toppings.</p>
+               <p className="text-white/60">From kitchen secrets to the latest toppings.</p>
             </motion.div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                {CATEGORIES.map((cat, i) => (
@@ -119,7 +121,7 @@ export default function HomeClient() {
                     </motion.div>
                     <div className="text-center">
                        <h3 className="font-bold text-white transition-colors group-hover:text-pizza-primary">{cat.name}</h3>
-                       <p className="text-[10px] uppercase font-bold text-white/20 tracking-widest">{cat.count} Articles</p>
+                       <p className="text-[10px] uppercase font-bold text-white/60 tracking-widest">{cat.count} Articles</p>
                     </div>
                  </Link>
                ))}
@@ -195,6 +197,16 @@ export default function HomeClient() {
              </div>
       </section>
 
+      {/* AMP Ad Section */}
+      <section className="py-16 px-6 bg-pizza-dark/50">
+        <div className="max-w-7xl mx-auto">
+          <AmpAd 
+            adClient="ca-pub-9190694258297146" 
+            adSlot="8165732373"
+          />
+        </div>
+      </section>
+
       {/* App Promotion Section */}
       <section className="py-24 px-6">
          <motion.div 
@@ -218,14 +230,14 @@ export default function HomeClient() {
                        className="hover:scale-105 transition-transform shadow-2xl"
                        aria-label="Download on the App Store"
                      >
-                        <Image src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" width={160} height={48} className="h-12 w-auto" />
+                        <Image src="/images/app-store-badge.svg" alt="App Store" width={160} height={48} className="h-12 w-auto" />
                      </Link>
                      <Link 
                        href="/download" 
                        className="hover:scale-105 transition-transform shadow-2xl"
                        aria-label="Get it on Google Play"
                      >
-                        <Image src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" width={160} height={48} className="h-12 w-auto" />
+                        <Image src="/images/google-play-badge.svg" alt="Play Store" width={160} height={48} className="h-12 w-auto" />
                      </Link>
                   </div>
                </div>
