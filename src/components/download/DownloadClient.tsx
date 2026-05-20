@@ -51,7 +51,7 @@ export default function DownloadClient() {
 
           <div className="pt-6 border-t border-white/5">
              <Link 
-               href="https://github.com/mediexplore3-creator/star-pizza/releases/latest" 
+               href="#" 
                className="flex items-center gap-4 text-white/60 hover:text-pizza-primary transition-colors group"
              >
                 <div className="h-12 w-12 rounded-full bg-pizza-primary/5 flex items-center justify-center group-hover:bg-pizza-primary group-hover:text-white transition-all">
