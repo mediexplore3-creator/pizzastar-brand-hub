@@ -116,12 +116,7 @@ export default function Footer() {
       {/* AdSense Placement / Divider */}
       <div className="max-w-7xl mx-auto px-6 mt-20">
         <div className="w-full rounded-[2rem] bg-white/5 flex items-center justify-center border border-white/5 overflow-hidden min-h-[120px] p-4">
-           <AdUnit adSlot="footer-ad-slot" />
-           {/*
-             To use your custom AdSense HTML snippet directly,
-             replace the above line with a rawHtml prop like this:
-             <AdUnit rawHtml={`<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXX" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>`} />
-           */}
+           <AdUnit adSlot="8165732373" adFormat="auto" fullWidthResponsive />
         </div>
       </div>
 
