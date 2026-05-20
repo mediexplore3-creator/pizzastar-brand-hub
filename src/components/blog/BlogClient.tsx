@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useMemo, Suspense, useEffect } from 'react';
+import { useState, useMemo, Suspense, useEffect, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, ArrowRight, Calendar, User, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { BLOG_POSTS } from '@/data/posts';
+import AdUnit from '@/components/ui/AdUnit';
 
 const CATEGORIES = ['All', 'Pizza Recipes', 'Industry News', 'Cooking Tips', 'Food Trends'];
 
@@ -83,51 +84,57 @@ function BlogContent() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <AnimatePresence mode="popLayout">
           {filteredPosts.slice(0, visibleCount).map((post, i) => (
-            <motion.article 
-              key={post.slug}
-              layout
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, delay: i % 6 * 0.1 }}
-              className="group glass rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl hover:shadow-2xl transition-all duration-500 border border-pizza-dark/5 dark:border-white/5"
-            >
-              <Link href={`/blog/${post.slug}`} className="relative aspect-[16/11] overflow-hidden block">
-                <Image 
-                  src={post.image} 
-                  alt={post.title} 
-                  fill 
-                  className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                />
-                <div className="absolute top-6 left-6">
-                  <span className="bg-pizza-primary text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-xl">
-                    {post.category}
-                  </span>
-                </div>
-              </Link>
-              
-              <div className="p-8 flex-1 flex flex-col space-y-5">
-                  <div className="flex items-center gap-6 text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">
-                    <span className="flex items-center gap-2"><Calendar size={14} /> {post.date}</span>
-                    <span className="flex items-center gap-2 font-bold italic tracking-normal"><User size={14} /> By {post.author}</span>
+            <Fragment key={post.slug}>
+              <motion.article 
+                layout
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, delay: i % 6 * 0.1 }}
+                className="group glass rounded-[2.5rem] overflow-hidden flex flex-col shadow-xl hover:shadow-2xl transition-all duration-500 border border-pizza-dark/5 dark:border-white/5"
+              >
+                <Link href={`/blog/${post.slug}`} className="relative aspect-[16/11] overflow-hidden block">
+                  <Image 
+                    src={post.image} 
+                    alt={post.title} 
+                    fill 
+                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                  />
+                  <div className="absolute top-6 left-6">
+                    <span className="bg-pizza-primary text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-xl">
+                      {post.category}
+                    </span>
                   </div>
+                </Link>
                 
-                  <h2 className="text-2xl font-black text-white leading-[1.2] group-hover:text-pizza-primary transition-colors line-clamp-2">
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                  </h2>
+                <div className="p-8 flex-1 flex flex-col space-y-5">
+                    <div className="flex items-center gap-6 text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">
+                      <span className="flex items-center gap-2"><Calendar size={14} /> {post.date}</span>
+                      <span className="flex items-center gap-2 font-bold italic tracking-normal"><User size={14} /> By {post.author}</span>
+                    </div>
                   
-                  <p className="text-sm text-white/60 leading-relaxed line-clamp-3 font-medium">
-                  {post.excerpt}
-                </p>
-                
-                <div className="pt-4 mt-auto">
-                    <Link href={`/blog/${post.slug}`} className="btn-secondary h-12 px-6 flex items-center justify-center gap-2 w-full sm:w-max group/link">
-                      <span className="text-xs font-black uppercase tracking-widest">Open Full Article</span>
-                      <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
+                    <h2 className="text-2xl font-black text-white leading-[1.2] group-hover:text-pizza-primary transition-colors line-clamp-2">
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h2>
+                    
+                    <p className="text-sm text-white/60 leading-relaxed line-clamp-3 font-medium">
+                    {post.excerpt}
+                  </p>
+                  
+                  <div className="pt-4 mt-auto">
+                      <Link href={`/blog/${post.slug}`} className="btn-secondary h-12 px-6 flex items-center justify-center gap-2 w-full sm:w-max group/link">
+                        <span className="text-xs font-black uppercase tracking-widest">Open Full Article</span>
+                        <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
+                      </Link>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
+              </motion.article>
+              {(i + 1) % 4 === 0 && (
+                <div className="col-span-1 md:col-span-2 lg:col-span-3 w-full my-8 glass rounded-[2.5rem] p-4 flex items-center justify-center overflow-hidden min-h-[120px]">
+                  <AdUnit adSlot={`blog-feed-ad-${i}`} className="w-full" />
+                </div>
+              )}
+            </Fragment>
           ))}
         </AnimatePresence>
       </div>
@@ -175,13 +182,8 @@ function BlogContent() {
       )}
 
       {/* AdSense Placement */}
-      <div className="mt-32 max-w-5xl mx-auto h-32 w-full rounded-3xl glass flex items-center justify-center border-dashed border-2 border-pizza-primary/20 bg-pizza-primary/5 transition-all hover:bg-pizza-primary/10">
-         <div className="flex flex-col items-center gap-2">
-            <span className="text-pizza-primary/10 font-black uppercase tracking-[0.6em] text-[10px]">Google AdSense Optimized Slot</span>
-            <div className="flex gap-2 opacity-5">
-               {[1,2,3,4,5].map(i => <div key={i} className="h-1 w-12 bg-pizza-primary rounded-full transition-all group-hover:w-16" />)}
-            </div>
-         </div>
+      <div className="mt-32 max-w-5xl mx-auto w-full rounded-3xl overflow-hidden glass min-h-[150px] p-4 flex items-center justify-center">
+         <AdUnit adSlot="blog-bottom-ad" className="w-full" />
       </div>
     </div>
   );

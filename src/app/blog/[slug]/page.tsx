@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { Metadata } from "next";
 import ShareActions from "@/components/blog/ShareActions";
+import AdUnit from "@/components/ui/AdUnit";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,6 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | Star Pizza Blog`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://pizzastarweb.netlify.app/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -37,7 +41,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BlogPosting",
     "headline": post.title,
     "image": post.image,
-    "datePublished": "2026-10-24T08:00:00+08:00",
+    "datePublished": new Date(post.date).toISOString(),
     "author": {
       "@type": "Person",
       "name": post.author
@@ -101,9 +105,8 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
 
               {/* Sidebar Ad */}
-              <div className="aspect-[3/4] rounded-2xl glass flex flex-col items-center justify-center p-6 text-center space-y-4">
-                 <span className="text-[10px] font-bold text-pizza-primary/20 uppercase tracking-widest">Ad Slot</span>
-                 <p className="text-xs font-bold text-pizza-dark/40">Recommended for you</p>
+              <div className="aspect-[3/4] rounded-2xl glass flex flex-col items-center justify-center p-4 overflow-hidden">
+                 <AdUnit adSlot="blog-sidebar-ad" adFormat="rectangle" className="w-full h-full" />
               </div>
 
               <div className="space-y-4">

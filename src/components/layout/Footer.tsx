@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Globe, Mail, Share2, Phone, MapPin, Camera, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import AdUnit from '@/components/ui/AdUnit';
 
 const footerLinks = [
   { 
@@ -114,9 +115,8 @@ export default function Footer() {
 
       {/* AdSense Placement / Divider */}
       <div className="max-w-7xl mx-auto px-6 mt-20">
-        <div className="h-28 w-full rounded-[2rem] bg-white/5 flex items-center justify-center border border-white/5 group relative overflow-hidden">
-           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-           <p className="text-white/10 text-[10px] font-black uppercase tracking-[0.6em] group-hover:text-white/20 transition-all">Partner Ad Discovery Zone</p>
+        <div className="w-full rounded-[2rem] bg-white/5 flex items-center justify-center border border-white/5 overflow-hidden min-h-[120px] p-4">
+           <AdUnit adSlot="footer-ad-slot" />
         </div>
       </div>
 
