@@ -2,11 +2,12 @@
 import { useEffect, useRef } from 'react';
 
 interface AdUnitProps {
-  adSlot: string;
+  adSlot?: string;
   adFormat?: 'auto' | 'fluid' | 'rectangle';
   fullWidthResponsive?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  rawHtml?: string;
 }
 
 export default function AdUnit({ 
@@ -14,13 +15,15 @@ export default function AdUnit({
   adFormat = 'auto', 
   fullWidthResponsive = true,
   className = '',
-  style
+  style,
+  rawHtml
 }: AdUnitProps) {
-  const adRef = useRef<HTMLModElement>(null);
-  
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     try {
-      if (adRef.current && !adRef.current.dataset.adsbygoogleStatus) {
+      const adElement = wrapperRef.current?.querySelector<HTMLModElement>('ins.adsbygoogle');
+      if (adElement && !adElement.dataset.adsbygoogleStatus) {
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
       }
     } catch (error) {
@@ -29,16 +32,19 @@ export default function AdUnit({
   }, []);
 
   return (
-    <div className={`overflow-hidden flex justify-center items-center ${className}`}>
-      <ins
-        ref={adRef}
-        className="adsbygoogle"
-        style={style || { display: 'block', minHeight: '100px', width: '100%' }}
-        data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-9190694258297146'}
-        data-ad-slot={adSlot}
-        data-ad-format={adFormat}
-        data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
-      />
+    <div ref={wrapperRef} className={`overflow-hidden flex justify-center items-center ${className}`}>
+      {rawHtml ? (
+        <div dangerouslySetInnerHTML={{ __html: rawHtml }} />
+      ) : (
+        <ins
+          className="adsbygoogle"
+          style={style || { display: 'block', minHeight: '100px', width: '100%' }}
+          data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_ID || 'ca-pub-9190694258297146'}
+          data-ad-slot={adSlot}
+          data-ad-format={adFormat}
+          data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
+        />
+      )}
     </div>
   );
 }
