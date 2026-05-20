@@ -5,6 +5,17 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Ensure static files from public folder are always included
+[[redirects]]
+  from = "/ads.txt"
+  to = "/ads.txt"
+  status = 200
+
+[[redirects]]
+  from = "/googlef31bf74ce45fe969.html"
+  to = "/googlef31bf74ce45fe969.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
